@@ -1,4 +1,5 @@
 import random
+from debugprint import Debug
 import time
 loop = True
 global dim3
@@ -32,6 +33,7 @@ while loop == True:
     store7 = []
     store8 = []
     holder = 0
+  
     code1= True
     n =0
     idk = 0
@@ -491,9 +493,11 @@ while loop == True:
         dim = input("\nPlease enter the dimensions you want for the matrix with a space between each character (either 2 x 2 or 3 x 3)\n")
         dim = dim.split(" ")
         print("\n")
+        Debug("Hello")
         if int(dim[0]) == int(dim[2]):
             if isinstance(dim[0], int):
                 print("Please enter in the form such as 3 x 3 ")
+
             for i in range (0,int(dim[0])):
                 y = str(i)
                 x += y
@@ -511,51 +515,55 @@ while loop == True:
             determin = (store1[0][0]*store1[1][1])-(store1[0][1]*store1[1][0])
         if int(dim[0]) == 3:
             for i in range(0,len(x)):
-                pack = [1,2]
-                pack2 = [0,1,2]
-                pack2.pop(int(i))
-                n1 = pack2[0]
-                n2 = pack2[1]
-                if i ==1:
-                    print(str(store1[1][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+2])+ ")")
-                    sumdet = ((((store1[1][int(n1)])))*(store1[2][int(n2)])-((store1[2][int(n1)])*(store1[1][int(n1)+2])))
+                #pack = [1,2]
+                #pack2 = [0,1,2]
+               # pack2.pop(int(i))
+                #n1 = pack2[0]
+                #n2 = pack2[1]
+                if i ==0:
+                    print(str(store1[1][1])+ " * "+str(store1[2][2])+" -( "+str(store1[2][2])+" * "+str(store1[1][2])+ ")")
+                    sumdet = ((((store1[1][1])))*(store1[2][2])-((store1[2][1])*(store1[1][2])))
+
+                elif i ==1:
+                    print(str(store1[1][0])+ " * "+str(store1[2][2])+" -( "+str(store1[2][0])+" * "+str(store1[1][2])+ ")")
+                    sumdet = ((((store1[1][0])))*(store1[2][2])-((store1[2][0])*(store1[1][2])))
                 else:
-                    print(str(store1[1][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+1])+")")
-                    sumdet = ((((store1[1][int(n1)])))*(store1[2][int(n2)])-((store1[2][int(n1)])*(store1[1][int(n1)+1])))
+                    print(str(store1[1][0])+ " * "+str(store1[2][1])+" -( "+str(store1[2][0])+" * "+str(store1[1][1])+")")
+                    sumdet = ((((store1[1][0])))*(store1[2][1])-((store1[2][0])*(store1[1][1])))
                 print(" = "+str(sumdet))
                 x1.append(sumdet)
             for i in range(0,len(x)):
-                pack = [0,2]
-                pack2 = [0,1,2]
-                pack2.pop(int(i))
-                n1 = pack2[0]
-                n2 = pack2[1]
+              #  pack = [0,2]
+              #  pack2 = [0,1,2]
+              #  pack2.pop(int(i))
+              #  n1 = pack2[0]
+              #  n2 = pack2[1]
                 if i == 0:
-                    print(str(store1[0][int(n2)])+ " * "+str(store1[2][int(n2)+1])+" -( "+str(store1[0][int(n2)+1])+" * "+str(store1[0][int(n2)])+")")
-                    sumdet = ((((store1[0][int(n2)])))*(store1[2][int(n2)+1])-((store1[0][int(n2)+1])*(store1[0][int(n2)])))
+                    print(str(store1[0][1])+ " * "+str(store1[2][2])+" -( "+str(store1[0][2])+" * "+str(store1[2][1])+")")
+                    sumdet = ((((store1[0][1])))*(store1[2][2])-((store1[0][2])*(store1[2][1])))
                 elif i ==1:
-                    print(str(store1[0][int(n1)])+ " * "+str(store1[2][2])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[0][int(n1)+2])+ ")")
-                    sumdet = ((((store1[0][int(n1)])))*(store1[2][2])-((store1[2][int(n1)])*(store1[0][int(n1)+2])))
+                    print(str(store1[0][0])+ " * "+str(store1[2][2])+" -( "+str(store1[2][0])+" * "+str(store1[0][2])+ ")")
+                    sumdet = ((((store1[0][0])))*(store1[2][2])-((store1[2][0])*(store1[0][2])))
                 else:
-                    print(str(store1[0][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[0][int(n1)+1])+")")
-                    sumdet = ((((store1[0][int(n1)])))*(store1[2][int(n2)])-((store1[2][int(n1)])*(store1[0][int(n1)+1])))
+                    print(str(store1[0][0])+ " * "+str(store1[2][1])+" -( "+str(store1[2][0])+" * "+str(store1[0][1])+")")
+                    sumdet = ((((store1[0][0])))*(store1[2][1])-((store1[2][0])*(store1[0][1])))
                 print(" = "+str(sumdet))
                 x2.append(sumdet)
             for i in range(0,len(x)):
-                pack = [0,1]
-                pack2 = [0,1,2]
-                pack2.pop(int(i))
-                n1 = pack2[0]
-                n2 = pack2[1]
+                #pack = [0,1]
+               # pack2 = [0,1,2]
+               # pack2.pop(int(i))
+              #  n1 = pack2[0]
+              #  n2 = pack2[1]
                 if i ==0:
                     print(str(store1[0][1])+ " * "+str(store1[1][2])+" -( "+str(store1[0][2])+" * "+str(store1[1][1])+")")
                     sumdet = ((((store1[0][1])))*(store1[1][2])-((store1[0][2])*(store1[1][1])))
                 elif i ==1:
-                    print(str(store1[0][0])+ " * "+str(store1[1][2])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+2])+ ")")
-                    sumdet = ((((store1[0][0])))*(store1[1][int(n2)])-((store1[2][int(n1)])*(store1[1][int(n1)+2])))
+                    print(str(store1[0][0])+ " * "+str(store1[1][2])+" -( "+str(store1[1][0])+" * "+str(store1[0][2])+ ")")
+                    sumdet = ((((store1[0][0])))*(store1[1][2])-((store1[1][0])*(store1[0][2])))
                 else:
-                    print(str(store1[1][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+1])+")")
-                    sumdet = (((store1[1][int(n1)])*(store1[2][int(n2)]))-((store1[2][int(n1)])*(store1[1][int(n1)+1])))
+                    print(str(store1[0][0])+ " * "+str(store1[1][1])+" -( "+str(store1[0][1])+" * "+str(store1[1][0])+")")
+                    sumdet = (((store1[0][0])*(store1[1][1]))-((store1[0][1])*(store1[1][0])))
                 print(" = "+str(sumdet))
                 x3.append(sumdet)
             x1[1]=-1*x1[1]
