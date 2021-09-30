@@ -542,30 +542,31 @@ def func1():
         dim = dim.split(" ")
         while True:
             if dim[0].isdigit() and dim[1]=="x"and dim[2].isdigit():
-                l = int(l)
-                break
+               break
             else:
                 print("\nPlease enter in the correct form such as 3 x 4 ")
-            while True:
-                maxsize = input("What do you want the maximum number of digits per number to be?(2 or 1)")
-                if maxsize.isdigit() and 1 <= int(maxsize) <=2:
-                    maxsize = int(maxsize)
-                    break
-                else:
-                    print("Please enter a valid number")
-            if maxsize == 1:
-                digit = 10
-            elif maxsize == 2:
-                digit = 100
-            for i in range (0,int(dim[0])):
-                y = str(i)
-                x += y
-                x = []
-                for j in range (0,int(dim[2])):
-                    (x).append(random.randint(0,digit))
-                    if len(x) == int(dim[2]):
-                        print(x)
-                        store1.append(x)
+        while True:
+            maxsize = input("What do you want the maximum number of digits per number to be?(2 or 1)")
+            if maxsize.isdigit() and 1 <= int(maxsize) <=2:
+                maxsize = int(maxsize)
+                break
+            else:
+                print("Please enter a valid number")
+        if maxsize == 1:
+            digit = 10
+        elif maxsize == 2:
+            digit = 100
+        for i in range (0,int(dim[0])):
+            y = str(i)
+            x += y
+            x = []
+            for j in range (0,int(dim[2])):
+                (x).append(random.randint(0,digit))
+                if len(x) == int(dim[2]):
+                    print(x)
+                    store1.append(x)
+ 
+
 
 
         else:
@@ -575,18 +576,22 @@ def func1():
             print(str(multiplied))
         if int(dim[0]) == 3:
             for i in range(0,len(x)):
-                pack = [1,2]
-                pack2 = [0,1,2]
-                pack2.pop(int(i))
-                n1 = pack2[0]
-                n2 = pack2[1]
-                if i ==1:
+               # pack = [1,2]
+               # pack2 = [0,1,2]
+              #  pack2.pop(int(i))
+               # n1 = pack2[0]
+               # n2 = pack2[1]
+                if i ==0:
+                    #print(str(store1[0][0]) + " * (" +str(store1[1][1])+ " * "+str(store1[2][2])+" -( "+str(store1[2][1])+" * "+str(store1[1][2])+ ")")
+                    sumdet = int(store1[0][0])*(((store1[1][1])*(store1[2][2]))-((store1[2][1])*(store1[1][2])))
+                    #print(str(sumdet))
+                elif i ==1:
                    # print(str(store1[0][i]) + " * (" +str(store1[1][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+2])+ ")")
-                    sumdet = int(store1[0][i])*((((store1[1][int(n1)])))*(store1[2][int(n2)])-((store1[2][int(n1)])*(store1[1][int(n1)+2])))
-                else:
+                    sumdet = int(store1[0][1])*((((store1[1][0])))*(store1[2][2])-((store1[2][0])*(store1[1][2])))
+                elif i == 2:
                     #print(str(store1[0][i]) + " * (" +str(store1[1][int(n1)])+ " * "+str(store1[2][int(n2)])+" -( "+str(store1[2][int(n1)])+" * "+str(store1[1][int(n1)+1])+")")
-                    sumdet = int(store1[0][i])*((((store1[1][int(n1)])))*(store1[2][int(n2)])-((store1[2][int(n1)])*(store1[1][int(n1)+1])))
-                print(" = "+str(sumdet))
+                    sumdet = int(store1[0][2])*((((store1[1][0])))*(store1[2][1])-((store1[2][0])*(store1[1][1])))
+                #print(" = "+str(sumdet))
                 x1.append(sumdet)
         determin = int(x1[0])-int(x1[1])+int(x1[2])
         det = int(input("Find the determinant of this matrix"))
@@ -600,7 +605,6 @@ def func1():
         dim = dim.split(" ")
         while True:
             if dim[0].isdigit() and dim[1]=="x"and dim[2].isdigit():
-                l = int(l)
                 break
             else:
                 print("\nPlease enter in the correct form such as 3 x 4 ")
@@ -722,25 +726,25 @@ def func1():
             print(" = "+str(sumdet))
             x4.append(sumdet)
         determin = int(x4[0])-int(x4[1])+int(x4[2])
-        det = int(input("What is the determinant for this matrix? "))
+        det = int(input("\nWhat is the determinant for this matrix? "))
         if det == determin:
             print("correct")
         else:
             print("incorrect, it is "+str(determin))
         for i in range(0,len(y1)):
-            attempt = int(input("What is the num "+str(i+1)+" element of the matrix? "))
+            attempt = int(input("\nWhat is the num "+str(i+1)+" element of the matrix? "))
             if attempt == y1[i]:
                 print("correct")
             else:
                 print("Incorrect, it should be "+str(y2[i]))
         for i in range(0,len(y2)):
-            attempt = int(input("What is the num "+str(i+1)+" element of the matrix? "))
+            attempt = int(input("\nWhat is the num "+str(i+1 + len(y1))+" element of the matrix? "))
             if attempt == y2[i]:
                 print("correct")
             else:
                 print("Incorrect, it should be "+str(y2[i]))
         for i in range(0,len(y3)):
-            attempt = int(input("What is the num "+str(i+1)+" element of the matrix? "))
+            attempt = int(input("\nWhat is the num "+str(i+1+len(y1)+len(y2))+" element of the matrix? "))
             if attempt == y3[i]:
                 print("correct")
             else:
